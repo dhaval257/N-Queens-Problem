@@ -10,6 +10,8 @@ import javax.annotation.Generated;
 public class HillClimbing {
 
 	static int BOARD_SIZE = 0;
+	static int userInput1 = 0;
+	static int userInput2 = 0;
 
 	public static void main(String args[]) {
 		System.out.println("Enter board size");
@@ -35,6 +37,24 @@ public class HillClimbing {
 		
 		ChessBoard tempBoard = new ChessBoard(generateRandomInitialState());
 		tempBoard.pritnState();
+		try {
+			userInput1 = Integer.parseInt(br.readLine());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			userInput2 = Integer.parseInt(br.readLine());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		if(tempBoard.areInConflict(userInput1, userInput2)){
+			System.out.println("They are in Conflict !!");
+		}else{
+			System.out.println("They are not in Conflict !!");
+		}
 		
 		
 	}
